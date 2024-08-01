@@ -1,0 +1,17 @@
+#include <unordered_set>
+using namespace std;
+bool detectCycle(Node *head)
+{
+    unordered_set<Node*> obj;
+    Node *temp = head;
+    while(temp != nullptr){
+        if(obj.find(temp) != obj.end())
+           return true;
+        else{
+            obj.insert(temp);
+            temp = temp -> next;
+
+        }
+    }
+	  return false;
+}
