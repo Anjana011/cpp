@@ -1,0 +1,18 @@
+Node* findIntersection(Node *firstHead, Node *secondHead)
+{
+   Node* l1 = firstHead;
+    Node* l2 = secondHead;
+    if(l1 == NULL || l2 == NULL)
+    return nullptr;
+    while(l1 != l2){
+        l1 = l1 -> next;
+        l2 = l2 -> next;
+        if(l1 == l2)
+        return l2;
+        if(l1 == NULL)
+        l1 = secondHead;
+        if(l2 == NULL)
+        l2 = firstHead;
+    }
+    return l2;
+}
