@@ -1,0 +1,14 @@
+
+Node *removeNodes(Node *head, int k) {
+    if(head==NULL){
+        return head;
+    }
+   Node *temp = removeNodes(head->next, k);
+   head ->next = temp;
+   if(head->data==k){
+       return head->next;
+   }
+   else{
+       return head;
+   }
+}
