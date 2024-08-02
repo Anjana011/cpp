@@ -1,0 +1,30 @@
+class Browser {
+    vector<string> history;
+    int position;
+    
+public:
+    Browser(string &homepage) {
+        history.push_back(homepage);
+        position = 0;
+    }
+
+    void visit(string &url)
+     {
+        if (position < history.size() - 1) 
+        history.erase(history.begin() + position + 1, history.end());
+        history.push_back(url);
+        position++;
+    }
+
+    string back(int steps) {
+        
+        position = max(0, position - steps);
+        return history[position];
+    }
+
+    string forward(int steps) {
+        
+        position = min((int)history.size() - 1, position + steps);
+        return history[position];
+    }
+};
